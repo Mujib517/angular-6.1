@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: '<h1>Hello World</h1>',
+  selector: 'app-root'
 })
+
 export class AppComponent {
-  title = 'angular-naresh';
+
 }
