@@ -12,4 +12,4 @@ export class HomeComponent {
 // inline ',""/single line
 // multiline
 // separate file
-// Data binding: interpolation(expr), property binding, class binding, stylebinding, two way
+// Data binding: interpolation(expr), property binding, event binding, class binding, stylebinding, two way
