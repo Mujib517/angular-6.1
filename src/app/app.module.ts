@@ -4,10 +4,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from "./home/home.component";
 import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
+import { ProductListComponent } from "./product-list/product-list.component";
 
 @NgModule({
   imports: [BrowserModule],
-  declarations: [AppComponent,HomeComponent,AboutComponent,ContactComponent],
+  declarations: [AppComponent,HomeComponent,
+    AboutComponent,ContactComponent,ProductListComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
