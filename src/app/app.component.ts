@@ -9,13 +9,23 @@ import { Component } from '@angular/core';
         <th>Value</th>
         <th>Index</th>
         <th>First</th>
+        <th>Last</th>
+        <th>Odd</th>
+        <th>Even</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let val of arr;let idx=index;let fst=first">
+      <tr [ngClass]="even?'bg1':'bg2'" *ngFor="let val of arr;
+      let idx=index;let fst=first; 
+      let lst=last;
+      let odd=odd;
+      let even=even">
         <td>{{val}}</td>
         <td>{{idx}}</td>
         <td>{{fst}}</td>
+        <td>{{lst}}</td>
+        <td>{{odd}}</td>
+        <td>{{even}}</td>
       </tr>
     </tbody>
   </table>
