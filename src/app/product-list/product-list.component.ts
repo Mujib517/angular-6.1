@@ -2,20 +2,14 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: 'app-product-list',
-  template: `<h1>Product List</h1>
+  template: `
   
-  <div>
-    <div class="card" *ngFor="let product of products">
-      <div class="card-body">
-      <h3 class="card-title">{{product.brand | uppercase}} {{product.model | lowercase}}</h3>
-      <b>{{product.price | currency}}</b>
-       <!-- <div>In Stock: {{product.inStock ? 'Yes':'No'}}</div> -->
-       <div>In stock: <input type="checkbox" disabled="true" [checked]="product.inStock" /></div>
-       <div>{{product.lastUpdated | date:'MMM-dd-yyyy hh:mm:ss a'}}</div>
-      </div>
+  <div class="container">
+    <h1>Product List</h1>
+     <div *ngFor="let product of products">
+      <app-product [product]="product"></app-product>
     </div>
   </div>
-
   `
 })
 export class ProductListComponent {
