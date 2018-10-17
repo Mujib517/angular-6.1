@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
       <div *ngFor="let user of users">
         <div class="card">
           <h4>{{user.login}}</h4>
-          <img class="img-thumbnail rounded" [src]="user.avatar_url" alt="image" width="150" height="120"/>
+          <img class="circle-img" [src]="user.avatar_url" alt="image" width="100" height="100"/>
         </div>
       </div>
     </div>
