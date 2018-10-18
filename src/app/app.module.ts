@@ -8,11 +8,13 @@ import { ProductListComponent } from "./product-list/product-list.component";
 import { ProductComponent } from "./product/product.component";
 import { UserListComponent } from './user-list/user-list.component';
 import { HttpClientModule } from "@angular/common/http";
+import { UserComponent } from "./user/user.component";
 
 @NgModule({
   imports: [BrowserModule, HttpClientModule],
   declarations: [AppComponent, HomeComponent,
-    AboutComponent, ContactComponent, ProductListComponent, ProductComponent, UserListComponent],
+    AboutComponent, ContactComponent, ProductListComponent, 
+    ProductComponent, UserListComponent,UserComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
