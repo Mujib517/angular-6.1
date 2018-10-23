@@ -9,12 +9,14 @@ import { ProductComponent } from "./product/product.component";
 import { UserListComponent } from './user-list/user-list.component';
 import { HttpClientModule } from "@angular/common/http";
 import { UserComponent } from "./user/user.component";
+import { ProductService } from "./services/product.serivce";
 
 @NgModule({
   imports: [BrowserModule, HttpClientModule],
   declarations: [AppComponent, HomeComponent,
-    AboutComponent, ContactComponent, ProductListComponent, 
-    ProductComponent, UserListComponent,UserComponent],
+    AboutComponent, ContactComponent, ProductListComponent,
+    ProductComponent, UserListComponent, UserComponent],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

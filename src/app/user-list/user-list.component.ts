@@ -14,9 +14,7 @@ export class UserListComponent {
   users: any;
 
   constructor(http: HttpClient) {
-   http.get("https://api.github.com/users")
-      .subscribe(res => {
-        this.users = res;
-      });
+    var obs = http.get("https://api.github.com/users");
+    obs.subscribe(res => this.users = res, err => console.log(err), () => console.log("COmpleted"));
   }
 }
