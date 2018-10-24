@@ -10,13 +10,21 @@ import { UserListComponent } from './user-list/user-list.component';
 import { HttpClientModule } from "@angular/common/http";
 import { UserComponent } from "./user/user.component";
 import { ProductService } from "./services/product.serivce";
+import { ConsoleLogger } from "./services/console.logger";
+import { FileLogger } from "./services/file.logger";
 
 @NgModule({
   imports: [BrowserModule, HttpClientModule],
   declarations: [AppComponent, HomeComponent,
     AboutComponent, ContactComponent, ProductListComponent,
     ProductComponent, UserListComponent, UserComponent],
-  providers: [ProductService],
+  providers: [ProductService, { provide: ConsoleLogger, useClass: FileLogger }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+// DI Framework.      
+// var svc=new ProductService();
+// var logger=new FileLogger();
+// var list= new ProductListComponent(svc,logger)

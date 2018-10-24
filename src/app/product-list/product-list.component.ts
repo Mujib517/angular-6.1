@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 import { ProductService } from '../services/product.serivce';
+import { ConsoleLogger } from "../services/console.logger";
 
 @Component({
   selector: 'app-product-list',
@@ -18,8 +18,12 @@ export class ProductListComponent {
 
   products: any;
 
-  constructor(svc: ProductService) {
+  constructor(svc: ProductService, logger: ConsoleLogger) {
+    logger.warn("Loading data.");
+    
     svc.get()
       .subscribe(res => this.products = res, err => console.log(err));
+    
+      logger.log("Loaded");
   }
 }
