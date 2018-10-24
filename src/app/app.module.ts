@@ -12,12 +12,15 @@ import { UserComponent } from "./user/user.component";
 import { ProductService } from "./services/product.serivce";
 import { ConsoleLogger } from "./services/console.logger";
 import { FileLogger } from "./services/file.logger";
+import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from './footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, RouterModule],
   declarations: [AppComponent, HomeComponent,
     AboutComponent, ContactComponent, ProductListComponent,
-    ProductComponent, UserListComponent, UserComponent],
+    ProductComponent, UserListComponent, UserComponent, HeaderComponent, FooterComponent],
   providers: [ProductService, { provide: ConsoleLogger, useClass: FileLogger }],
   bootstrap: [AppComponent]
 })
