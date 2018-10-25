@@ -14,4 +14,8 @@ export class ProductService {
     return this.http.get("http://exp-rest-api.herokuapp.com/api/products")
       .pipe(map(res => res["data"]));
   }
+
+  getById(id: string): Observable<any> {
+    return this.http.get('http://exp-rest-api.herokuapp.com/api/products/' + id);
+  }
 }

@@ -9,19 +9,19 @@ import { ProductComponent } from "./product/product.component";
 import { UserListComponent } from './user-list/user-list.component';
 import { HttpClientModule } from "@angular/common/http";
 import { UserComponent } from "./user/user.component";
-import { ProductService } from "./services/product.serivce";
-import { ConsoleLogger } from "./services/console.logger";
-import { FileLogger } from "./services/file.logger";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from './footer/footer.component';
-import { RouterModule } from '@angular/router';
+import { ServiceModule } from "./services/service.module";
+import { RoutingModule } from "./routing.module";
+import { ProductDetailComponent } from "./product-detail/product-detail.component";
+
 
 @NgModule({
-  imports: [BrowserModule, HttpClientModule, RouterModule],
+  imports: [BrowserModule, HttpClientModule, ServiceModule, RoutingModule],
   declarations: [AppComponent, HomeComponent,
     AboutComponent, ContactComponent, ProductListComponent,
-    ProductComponent, UserListComponent, UserComponent, HeaderComponent, FooterComponent],
-  providers: [ProductService, { provide: ConsoleLogger, useClass: FileLogger }],
+    ProductComponent, UserListComponent, UserComponent,
+    HeaderComponent, FooterComponent, ProductDetailComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,7 +5,7 @@ import { Component, Input } from "@angular/core";
   template: ` 
   <div class="card">
     <div class="card-body">
-    <h3 class="card-title">{{product.brand | uppercase}} {{product.model | lowercase}}</h3>
+    <a routerLink="/products/{{product._id}}"><h3 class="card-title">{{product.brand | uppercase}} {{product.model | lowercase}}</h3></a>
     <b>{{product.price | currency}}</b>
     <!-- <div>In Stock: {{product.inStock ? 'Yes':'No'}}</div> -->
     <div>In stock: <input type="checkbox" disabled="true" [checked]="product.inStock" /></div>

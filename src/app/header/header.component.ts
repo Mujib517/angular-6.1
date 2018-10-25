@@ -6,10 +6,10 @@ import { Component } from "@angular/core";
   <nav class="navbar navbar-expand-lg bg-dark" >
      <h3 class="navbar-brand">My Products App</h3>
      <ul class="navbar-nav mr-auto">
-       <li class="nav-item"><a class="nav-link" href="">Home</a></li>
-       <li class="nav-item"><a class="nav-link" href="">About</a></li>
-       <li class="nav-item"><a class="nav-link" href="">Products</a></li>
-       <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
+       <li class="nav-item"><a class="nav-link" routerLink="/">Home</a></li>
+       <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
+       <li class="nav-item"><a class="nav-link" routerLink="/products">Products</a></li>
+       <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
      </ul>
    </nav>
  </header>`
