@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ProductService } from "../services/product.serivce";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-product-detail',
@@ -26,10 +27,11 @@ import { ProductService } from "../services/product.serivce";
 export class ProductDetailComponent {
 
   //? safe navigation operator
-  product: any={};
+  product: any = {};
 
-  constructor(svc: ProductService) {
-    const id = "5b28ab487e329e0014e94613";
+  constructor(svc: ProductService, route: ActivatedRoute) {
+    const id = route.snapshot.params.id;
+
     svc.getById(id)
       .subscribe(res => this.product = res, err => console.log(err));
   }
