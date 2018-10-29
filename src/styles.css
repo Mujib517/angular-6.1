@@ -17,3 +17,6 @@
 .circle-img{
   border-radius: 50px;
 }
+.navbar-brand,.navbar ul li a,footer{
+  color:#fff !important;
+}

@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-product',
@@ -10,12 +11,17 @@ import { Component, Input } from "@angular/core";
     <!-- <div>In Stock: {{product.inStock ? 'Yes':'No'}}</div> -->
     <div>In stock: <input type="checkbox" disabled="true" [checked]="product.inStock" /></div>
     <div>{{product.lastUpdated | date:'MMM-dd-yyyy hh:mm:ss a'}}</div>
+    <div>{{getRelativeTime(product.lastUpdated)}}</div>
     </div>
   </div>`
 })
 export class ProductComponent {
   @Input()
   product: any;
+
+  getRelativeTime(date) {
+    return moment(date).fromNow();
+  }
 }
 
 // dumb components
