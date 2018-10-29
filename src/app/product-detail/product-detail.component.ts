@@ -18,6 +18,7 @@ import { ActivatedRoute } from "@angular/router";
     </div>
     <div class="card-footer">
       {{product.lastUpdated | date}}
+      ({{ product.lastUpdated | time}})
     </div>
   </div>
   </div>

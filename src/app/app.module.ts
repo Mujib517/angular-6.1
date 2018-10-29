@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ServiceModule } from "./services/service.module";
 import { RoutingModule } from "./routing.module";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
+import { TimePipe } from "./services/time.pipe";
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { ProductDetailComponent } from "./product-detail/product-detail.componen
   declarations: [AppComponent, HomeComponent,
     AboutComponent, ContactComponent, ProductListComponent,
     ProductComponent, UserListComponent, UserComponent,
-    HeaderComponent, FooterComponent, ProductDetailComponent],
+    HeaderComponent, FooterComponent, ProductDetailComponent, TimePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
