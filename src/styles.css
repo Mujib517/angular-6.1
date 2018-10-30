@@ -20,3 +20,12 @@
 .navbar-brand,.navbar ul li a,footer{
   color:#fff !important;
 }
+
+.loader{
+  position: relative;
+  margin-top:200px;
+  left:45%;
+  border:1px solid gray;
+  height: 35px;
+  width:120px;
+}

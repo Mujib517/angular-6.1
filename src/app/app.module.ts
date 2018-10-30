@@ -16,10 +16,11 @@ import { RoutingModule } from "./routing.module";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
 import { TimePipe } from "./services/time.pipe";
 import { NewProductComponent } from "./new-product/new-product.component";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  imports: [BrowserModule, HttpClientModule, ServiceModule, RoutingModule],
+  imports: [BrowserModule, HttpClientModule, ServiceModule, FormsModule, RoutingModule],
   declarations: [AppComponent, HomeComponent,
     AboutComponent, ContactComponent, ProductListComponent,
     ProductComponent, UserListComponent, UserComponent,
