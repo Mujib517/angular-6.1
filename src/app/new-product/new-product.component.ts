@@ -5,32 +5,69 @@ import { Router } from '@angular/router';
 @Component({
   template: `<h1>New Product</h1>
 
-   <div class="col-md-6">
-   
-   <div *ngIf="success" class="alert alert-success">Successfully Saved!!</div>
-   <div *ngIf="failed" class="alert alert-danger">Failed to save data. Please try again</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Field
+        </th>
+        <th>
+          Valid
+        </th>
+        <th>
+          Invalid
+        </th>
+        <th>Pristine</th>
+        <th>Dirty</th>
+        <th>Touched</th>
+        <th>Errors</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Brand</td>
+        <td>{{brand.valid}}</td>
+        <td>{{brand.invalid}}</td>
+        <td>{{brand.pristine}}</td>
+        <td>{{brand.dirty}}</td>
+        <td>{{brand.touched}}</td>
+        <td>{{brand.errors | json}}</td>
+      </tr>
+    </tbody>
 
-   <div class="form-group">
-      <input type="text" placeholder="Brand" class="form-control" [(ngModel)]="product.brand"  />
-    </div>
-    <div class="form-group">
-      <input type="text" placeholder="Model" class="form-control" [(ngModel)]="product.model"  />
-    </div>
-    <div class="form-group">
-      <input type="text" placeholder="Price" class="form-control" [(ngModel)]="product.price"  />
-    </div>
-    <div class="form-group">
-      <input type="checkbox" [(ngModel)]="product.inStock" />
-      InStock
-    </div>
-    <div class="form-group">
-      <button class="btn btn-success" (click)="onSave()">
-        Save Product
-        <img *ngIf="loading" src="/assets/images/loading.gif" width="30" height="30"/>
-      </button>
-    </div>
+   </table> 
+  
+  <div class="col-md-6">
+    <div *ngIf="success" class="alert alert-success">Successfully Saved!!</div>
+   <div *ngIf="failed" class="alert alert-danger">Failed to save data. Please try again</div>
+  <form novalidate #frm="ngForm">
+      <div class="form-group">
+        <input #brand="ngModel" minlength="3" maxlength="10" name="brand" type="text" placeholder="Brand" class="form-control" [(ngModel)]="product.brand" required  />
+        <span *ngIf="brand.touched && brand.errors?.required" class="text-danger">Required</span>
+        <span *ngIf="brand.touched && brand.errors?.minlength" class="text-danger">Min 3 chars</span>
+        <span *ngIf="brand.touched && brand.errors?.maxlength" class="text-danger">Max 10 chars</span>
+        </div>
+      <div class="form-group">
+        <input #model="ngModel" required name="model" type="text" placeholder="Model" class="form-control" [(ngModel)]="product.model"  />
+        <span *ngIf="model.touched && model.invalid" class="text-danger">Required</span>
+        </div>
+      <div cla requiredss="form-group">
+        <input #price="ngModel" required name="price" type="text" placeholder="Price" class="form-control" [(ngModel)]="product.price"  />
+        <span *ngIf="price.touched && price.invalid" class="text-danger">Required</span>
+      </div>
+      <div class="form-group">
+        <input name="inStock" type="checkbox" [(ngModel)]="product.inStock" />
+        InStock
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success" (click)="onSave()" [disabled]="frm.invalid">
+          Save Product
+          <img *ngIf="loading" src="/assets/images/loading.gif" width="30" height="30"/>
+        </button>
+      </div>
+    </form>
    </div>
-   
+ 
    `
 })
 export class NewProductComponent {
