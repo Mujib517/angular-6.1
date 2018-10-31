@@ -46,7 +46,7 @@ import { Router } from '@angular/router';
         <span *ngIf="brand.touched && brand.errors?.required" class="text-danger">Required</span>
         <span *ngIf="brand.touched && brand.errors?.minlength" class="text-danger">Min 3 chars</span>
         <span *ngIf="brand.touched && brand.errors?.maxlength" class="text-danger">Max 10 chars</span>
-        </div>
+      </div>
       <div class="form-group">
         <input #model="ngModel" required name="model" type="text" placeholder="Model" class="form-control" [(ngModel)]="product.model"  />
         <span *ngIf="model.touched && model.invalid" class="text-danger">Required</span>
@@ -58,6 +58,11 @@ import { Router } from '@angular/router';
       <div class="form-group">
         <input name="inStock" type="checkbox" [(ngModel)]="product.inStock" />
         InStock
+      </div>
+      <div class="form-group">
+        <input #phone="ngModel" name="phone" type="textbox" [(ngModel)]="product.phone" class="form-control" 
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone" />
+        <span *ngIf="phone.errors?.pattern" class="text-danger">Invalid Phone number</span>
       </div>
       <div class="form-group">
         <button class="btn btn-success" (click)="onSave()" [disabled]="frm.invalid">
