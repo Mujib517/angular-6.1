@@ -16,15 +16,16 @@ import { RoutingModule } from "./routing.module";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
 import { TimePipe } from "./services/time.pipe";
 import { NewProductComponent } from "./new-product/new-product.component";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
 
 
 @NgModule({
-  imports: [BrowserModule, HttpClientModule, ServiceModule, FormsModule, RoutingModule],
+  imports: [BrowserModule, HttpClientModule, ServiceModule, FormsModule, ReactiveFormsModule, RoutingModule],
   declarations: [AppComponent, HomeComponent,
     AboutComponent, ContactComponent, ProductListComponent,
     ProductComponent, UserListComponent, UserComponent,
-    HeaderComponent, FooterComponent, ProductDetailComponent, TimePipe, NewProductComponent],
+    HeaderComponent, FooterComponent, ProductDetailComponent, TimePipe, NewProductComponent, ReactiveFormComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

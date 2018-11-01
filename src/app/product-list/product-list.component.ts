@@ -12,6 +12,8 @@ import { ConsoleLogger } from "../services/console.logger";
   <div *ngIf="!loading">
     <h1>Product List</h1>
      <button routerLink="/products/new" class="btn btn-primary">Add New Product</button>
+     &nbsp;&nbsp;
+     <button routerLink="/products/reactive-form" class="btn btn-primary">Reactive Form</button>
      <div *ngFor="let product of products;">
       <app-product [product]="product"></app-product>
     </div>

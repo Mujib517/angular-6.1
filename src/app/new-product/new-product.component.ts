@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { ProductService } from "../services/product.serivce";
 import { Router } from '@angular/router';
 
+// template driven, model driven (reactive forms)
 @Component({
   template: `<h1>New Product</h1>
 
@@ -65,6 +66,9 @@ import { Router } from '@angular/router';
         <span *ngIf="phone.errors?.pattern" class="text-danger">Invalid Phone number</span>
       </div>
       <div class="form-group">
+        <input type="file" name="image" [(ngModel)]="product.image"/>
+      </div>
+      <div class="form-group">
         <button class="btn btn-success" (click)="onSave()" [disabled]="frm.invalid">
           Save Product
           <img *ngIf="loading" src="/assets/images/loading.gif" width="30" height="30"/>
@@ -86,17 +90,28 @@ export class NewProductComponent {
 
   onSave() {
     this.loading = true;
-    this.svc.save(this.product)
-      .subscribe(res => {
-        this.success = true;
-        this.failed = false;
-        this.product = {};
-        this.loading = false;
-        //this.router.navigate(["/products"]);
-      }, err => {
-        this.failed = true;
-        this.success = false;
-        this.loading = false;
-      });
+
+    var frmData: FormData = new FormData();
+    frmData.append("brand", this.product.brand);
+    frmData.append("model", this.product.model);
+    frmData.append("price", this.product.model);
+    frmData.append("inStock", this.product.inStock);
+    //frmData.append("image", this.product.image);
+
+
+    console.log(this.product);
+
+    // this.svc.save(this.product)
+    //   .subscribe(res => {
+    //     this.success = true;
+    //     this.failed = false;
+    //     this.product = {};
+    //     this.loading = false;
+    //     //this.router.navigate(["/products"]);
+    //   }, err => {
+    //     this.failed = true;
+    //     this.success = false;
+    //     this.loading = false;
+    //   });
   }
 }
