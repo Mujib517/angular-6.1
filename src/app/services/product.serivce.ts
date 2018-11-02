@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ProductService {
 
+  reviews: any;
   //design pattern. Dependency injection
   constructor(private http: HttpClient) {
   }
@@ -19,7 +20,7 @@ export class ProductService {
     return this.http.get('http://exp-rest-api.herokuapp.com/api/products/' + id);
   }
 
-  save(product:any):Observable<any>{
-    return this.http.post('http://exp-rest-api.herokuapp.com/api/products',product);
+  save(product: any): Observable<any> {
+    return this.http.post('http://exp-rest-api.herokuapp.com/api/products', product);
   }
 }

@@ -44,6 +44,9 @@ export class ProductDetailComponent {
     const id = route.snapshot.params.id;
 
     svc.getById(id)
-      .subscribe(res => this.product = res, err => console.log(err));
+      .subscribe(res => {
+        this.product = res;
+        svc.reviews = this.product.reviews;
+      }, err => console.log(err));
   }
 }

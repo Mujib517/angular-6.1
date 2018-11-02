@@ -1,4 +1,5 @@
-import { Component, Input } from "@angular/core";
+import { Component } from "@angular/core";
+import { ProductService } from "../services/product.serivce";
 
 @Component({
   selector: 'app-product-reviews',
@@ -13,6 +14,9 @@ import { Component, Input } from "@angular/core";
  </div>`
 })
 export class ReviewsComponent {
-  @Input()
   reviews: any;
+
+  constructor(svc: ProductService) {
+    this.reviews = svc.reviews;
+  }
 }
