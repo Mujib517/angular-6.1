@@ -22,8 +22,11 @@ import { ActivatedRoute } from "@angular/router";
     </div>
   </div>
   </div>
-  
+  <br/>
+  <app-product-more-info [avgRating]="product.avgRating"></app-product-more-info>
+  <app-product-reviews [reviews]="product.reviews"></app-product-reviews>
   `
+
 })
 export class ProductDetailComponent {
 

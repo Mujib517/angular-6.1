@@ -18,6 +18,8 @@ import { TimePipe } from "./services/time.pipe";
 import { NewProductComponent } from "./new-product/new-product.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
+import { ReviewsComponent } from "./reviews/reviews.component";
+import { MoreInfoComponent } from "./moreInfo/moreInfo.component";
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
   declarations: [AppComponent, HomeComponent,
     AboutComponent, ContactComponent, ProductListComponent,
     ProductComponent, UserListComponent, UserComponent,
-    HeaderComponent, FooterComponent, ProductDetailComponent, TimePipe, NewProductComponent, ReactiveFormComponent],
+    HeaderComponent, FooterComponent, ProductDetailComponent,
+    TimePipe, NewProductComponent, ReactiveFormComponent, ReviewsComponent,
+    MoreInfoComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
