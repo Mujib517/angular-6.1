@@ -7,6 +7,16 @@ import { ProductListComponent } from "./product-list/product-list.component";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
 import { NewProductComponent } from "./new-product/new-product.component";
 import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
+import { ReviewsComponent } from "./reviews/reviews.component";
+import { MoreInfoComponent } from "./moreInfo/moreInfo.component";
+
+
+const CHILD_ROUTES: Route[] = [
+  { path: 'reviews', component: ReviewsComponent },
+  { path: 'more', component: MoreInfoComponent },
+  { path: '**', redirectTo: 'reviews' }
+];
+
 
 const ROUTES: Route[] = [{ path: '', component: HomeComponent },
 { path: 'about', component: AboutComponent },
@@ -14,7 +24,7 @@ const ROUTES: Route[] = [{ path: '', component: HomeComponent },
 { path: 'products', component: ProductListComponent },
 { path: 'products/new', component: NewProductComponent },
 { path: 'products/reactive-form', component: ReactiveFormComponent },
-{ path: 'products/:id', component: ProductDetailComponent },
+{ path: 'products/:id', component: ProductDetailComponent, children: CHILD_ROUTES },
 { path: '**', redirectTo: '' }
 ];
 

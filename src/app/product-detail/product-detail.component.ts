@@ -25,14 +25,13 @@ import { ActivatedRoute } from "@angular/router";
   <br/>
   <ul class="nav nav-tabs">
   <li class="nav-item">
-    <a class="nav-link" [ngClass]="activeTab===0?'active':''" (click)="changeTab(0)">Reviews</a>
+    <a class="nav-link" routerLinkActive="active" routerLink="reviews">Reviews</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" [ngClass]="activeTab===1?'active':''"  (click)="changeTab(1)">More</a>
+    <a class="nav-link" routerLinkActive="active" routerLink="more">More</a>
   </li>
 </ul>
-  <app-product-more-info *ngIf="activeTab===1" [avgRating]="product.avgRating"></app-product-more-info>
-  <app-product-reviews *ngIf="activeTab===0" [reviews]="product.reviews"></app-product-reviews>
+<div><router-outlet></router-outlet></div>
   `
 
 })
@@ -40,16 +39,11 @@ export class ProductDetailComponent {
 
   //? safe navigation operator
   product: any = {};
-  activeTab: number = 0;
 
   constructor(svc: ProductService, route: ActivatedRoute) {
     const id = route.snapshot.params.id;
 
     svc.getById(id)
       .subscribe(res => this.product = res, err => console.log(err));
-  }
-
-  changeTab(val) {
-    this.activeTab = val;
   }
 }
