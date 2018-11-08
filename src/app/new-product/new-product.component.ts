@@ -66,7 +66,7 @@ import { Router } from '@angular/router';
         <span *ngIf="phone.errors?.pattern" class="text-danger">Invalid Phone number</span>
       </div>
       <div class="form-group">
-        <input type="file" name="image" [(ngModel)]="product.image"/>
+        <input type="file" name="image" (change)="handleUpload($event)" />
       </div>
       <div class="form-group">
         <button class="btn btn-success" (click)="onSave()" [disabled]="frm.invalid">
@@ -88,30 +88,23 @@ export class NewProductComponent {
 
   constructor(private svc: ProductService, private router: Router) { }
 
+  handleUpload(event) {
+    this.product.img = event.target.files[0];
+  }
+
   onSave() {
     this.loading = true;
-
-    var frmData: FormData = new FormData();
-    frmData.append("brand", this.product.brand);
-    frmData.append("model", this.product.model);
-    frmData.append("price", this.product.model);
-    frmData.append("inStock", this.product.inStock);
-    //frmData.append("image", this.product.image);
-
-
-    console.log(this.product);
-
-    // this.svc.save(this.product)
-    //   .subscribe(res => {
-    //     this.success = true;
-    //     this.failed = false;
-    //     this.product = {};
-    //     this.loading = false;
-    //     //this.router.navigate(["/products"]);
-    //   }, err => {
-    //     this.failed = true;
-    //     this.success = false;
-    //     this.loading = false;
-    //   });
+    this.svc.save(this.product)
+      .subscribe(res => {
+        this.success = true;
+        this.failed = false;
+        this.product = {};
+        this.loading = false;
+        //this.router.navigate(["/products"]);
+      }, err => {
+        this.failed = true;
+        this.success = false;
+        this.loading = false;
+      });
   }
 }

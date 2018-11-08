@@ -21,6 +21,15 @@ export class ProductService {
   }
 
   save(product: any): Observable<any> {
-    return this.http.post('http://exp-rest-api.herokuapp.com/api/products', product);
+    var frmData: FormData = new FormData();
+    // frmData.append("brand",product.brand);
+    // frmData.append("model",product.model);
+    // frmData.append("price",product.price);
+    // frmData.append("inStock",product.inStock);
+    // frmData.append("img",product.img);
+    for (var key in product) {
+      frmData.append(key, product[key]);
+    }
+    return this.http.post('http://exp-rest-api.herokuapp.com/api/products', frmData, { headers: {} });
   }
 }
