@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
 import { ReviewsComponent } from "./reviews/reviews.component";
 import { MoreInfoComponent } from "./moreInfo/moreInfo.component";
+import { LoginComponent } from "./login/login.component";
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { MoreInfoComponent } from "./moreInfo/moreInfo.component";
     ProductComponent, UserListComponent, UserComponent,
     HeaderComponent, FooterComponent, ProductDetailComponent,
     TimePipe, NewProductComponent, ReactiveFormComponent, ReviewsComponent,
-    MoreInfoComponent],
+    MoreInfoComponent, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,6 +9,7 @@ import { NewProductComponent } from "./new-product/new-product.component";
 import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
 import { ReviewsComponent } from "./reviews/reviews.component";
 import { MoreInfoComponent } from "./moreInfo/moreInfo.component";
+import { LoginComponent } from "./login/login.component";
 
 
 const CHILD_ROUTES: Route[] = [
@@ -22,6 +23,7 @@ const ROUTES: Route[] = [{ path: '', component: HomeComponent },
 { path: 'about', component: AboutComponent },
 { path: 'contact', component: ContactComponent },
 { path: 'products', component: ProductListComponent },
+{ path: 'login', component: LoginComponent },
 { path: 'products/new', component: NewProductComponent },
 { path: 'products/reactive-form', component: ReactiveFormComponent },
 { path: 'products/:id', component: ProductDetailComponent, children: CHILD_ROUTES },
