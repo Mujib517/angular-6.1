@@ -32,4 +32,8 @@ export class ProductService {
     }
     return this.http.post('http://exp-rest-api.herokuapp.com/api/products', frmData, { headers: {} });
   }
+
+  delete(id: string): Observable<any> {
+    return this.http.delete('http://exp-rest-api.herokuapp.com/api/products/' + id);
+  }
 }

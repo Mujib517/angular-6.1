@@ -15,7 +15,7 @@ import { ConsoleLogger } from "../services/console.logger";
      &nbsp;&nbsp;
      <button routerLink="/products/reactive-form" class="btn btn-primary">Reactive Form</button>
      <div *ngFor="let product of products;">
-      <app-product [product]="product"></app-product>
+      <app-product [product]="product" (notify)="onNotified()"></app-product>
     </div>
   </div>
   `
@@ -25,7 +25,7 @@ export class ProductListComponent {
   products: any;
   loading: boolean;
 
-  constructor(svc: ProductService, logger: ConsoleLogger) {
+  constructor(private svc: ProductService, logger: ConsoleLogger) {
     this.loading = true;
     logger.warn("Loading data.");
 
@@ -39,5 +39,16 @@ export class ProductListComponent {
       });
 
     logger.log("Loaded");
+  }
+
+  onNotified() {
+    this.svc.get()
+      .subscribe(res => {
+        this.products = res;
+        this.loading = false;
+      }, err => {
+        this.loading = false;
+        console.log(err);
+      });
   }
 }
