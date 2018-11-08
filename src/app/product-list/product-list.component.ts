@@ -25,23 +25,17 @@ export class ProductListComponent {
   products: any;
   loading: boolean;
 
-  constructor(private svc: ProductService, logger: ConsoleLogger) {
-    this.loading = true;
-    logger.warn("Loading data.");
-
-    svc.get()
-      .subscribe(res => {
-        this.products = res;
-        this.loading = false;
-      }, err => {
-        this.loading = false;
-        console.log(err);
-      });
-
-    logger.log("Loaded");
+  constructor(private svc: ProductService, private logger: ConsoleLogger) {
+    this.load();
   }
 
   onNotified() {
+    this.load();
+  }
+
+  private load() {
+    this.loading = true;
+    this.logger.warn("Loading data.");
     this.svc.get()
       .subscribe(res => {
         this.products = res;
@@ -50,5 +44,6 @@ export class ProductListComponent {
         this.loading = false;
         console.log(err);
       });
+    this.logger.log("Loaded");
   }
 }
