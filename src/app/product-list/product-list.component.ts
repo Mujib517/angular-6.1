@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { ProductService } from '../services/product.serivce';
 import { ConsoleLogger } from "../services/console.logger";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -25,7 +26,8 @@ export class ProductListComponent {
   products: any;
   loading: boolean;
 
-  constructor(private svc: ProductService, private logger: ConsoleLogger) {
+  constructor(private svc: ProductService,
+    private logger: ConsoleLogger, private router: Router) {
     this.load();
   }
 
@@ -42,7 +44,8 @@ export class ProductListComponent {
         this.loading = false;
       }, err => {
         this.loading = false;
-        console.log(err);
+        //if (err.status === 401) 
+        this.router.navigate(["/login"]);
       });
     this.logger.log("Loaded");
   }

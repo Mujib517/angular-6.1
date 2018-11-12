@@ -12,7 +12,9 @@ export class ProductService {
   }
 
   get(): Observable<any> {
-    return this.http.get("http://exp-rest-api.herokuapp.com/api/products")
+    var token = localStorage.getItem('token');
+    var hdrs = { authorization: token };
+    return this.http.get("http://exp-rest-api.herokuapp.com/api/products", { headers: hdrs })
       .pipe(map(res => res["data"]));
   }
 
