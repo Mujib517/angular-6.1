@@ -21,7 +21,11 @@ import { UserService } from "../services/user.service";
 })
 export class HeaderComponent {
 
-  constructor(private router: Router, private userSvc: UserService) { }
+  isAuthenticated: boolean;
+
+  constructor(private router: Router, private userSvc: UserService) {
+    this.isAuthenticated = this.userSvc.isAuthenticated();
+  }
 
   onLogout() {
     this.userSvc.logout();
