@@ -1,9 +1,13 @@
 import { Component } from "@angular/core";
+import { UserService } from "../services/user.service";
+import { Router } from '@angular/router';
 
 @Component({
   template: `<h1>Login</h1>
 
     <div class="col-md-5">
+      <div *ngIf="error" class="alert alert-danger">Wrong username or password</div>
+
       <div class="form-group">
         <input type="text" placeholder="Username" class="form-control" [(ngModel)]="user.username"/>
       </div>
@@ -20,8 +24,19 @@ import { Component } from "@angular/core";
 export class LoginComponent {
 
   user: any = {};
+  error: boolean = false;
+
+  constructor(private userSvc: UserService, private router: Router) { }
 
   onLogin() {
-    console.log("Logging...", this.user);
+    this.userSvc.login(this.user)
+      .subscribe(
+        res => {
+          this.error = false;
+          localStorage.setItem('token', res.token);
+          this.router.navigate(["/products"]);
+        },
+        err => this.error = true
+      );
   }
 }
