@@ -10,4 +10,12 @@ export class UserService {
   login(user: any): Observable<any> {
     return this.http.post('http://exp-rest-api.herokuapp.com/api/users/login', user);
   }
+
+  saveToken(token){
+    localStorage.setItem('token', token);
+  }
+
+  logout(){
+    localStorage.removeItem("token");
+  }
 }

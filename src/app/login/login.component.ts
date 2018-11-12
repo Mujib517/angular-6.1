@@ -33,7 +33,7 @@ export class LoginComponent {
       .subscribe(
         res => {
           this.error = false;
-          localStorage.setItem('token', res.token);
+          this.userSvc.saveToken(res.token);
           this.router.navigate(["/products"]);
         },
         err => this.error = true
