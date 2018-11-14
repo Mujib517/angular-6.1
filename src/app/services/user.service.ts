@@ -1,16 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import * as jwt from 'angular-jwt';
+import { Observable, Subject } from "rxjs";
 
 @Injectable()
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  isAuthenticated: Subject<boolean>;
 
-  isAuthenticated(): boolean {
-    if (!localStorage.getItem("token")) return false;
-    return true;
+  constructor(private http: HttpClient) {
+    this.isAuthenticated = new Subject<boolean>();
   }
 
   login(user: any): Observable<any> {
@@ -19,9 +17,11 @@ export class UserService {
 
   saveToken(token) {
     localStorage.setItem('token', token);
+    this.isAuthenticated.next(true);
   }
 
   logout() {
     localStorage.removeItem("token");
+    this.isAuthenticated.next(false);
   }
 }
