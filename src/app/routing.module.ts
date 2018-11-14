@@ -10,6 +10,8 @@ import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
 import { ReviewsComponent } from "./reviews/reviews.component";
 import { MoreInfoComponent } from "./moreInfo/moreInfo.component";
 import { LoginComponent } from "./login/login.component";
+import { ProductRouteGaruds } from "./services/route.garuds";
+import { ProductService } from "./services/product.serivce";
 
 
 const CHILD_ROUTES: Route[] = [
@@ -20,9 +22,9 @@ const CHILD_ROUTES: Route[] = [
 
 
 const ROUTES: Route[] = [{ path: '', component: HomeComponent },
-{ path: 'about', component: AboutComponent },
-{ path: 'contact', component: ContactComponent },
-{ path: 'products', component: ProductListComponent },
+{ path: 'about', component: AboutComponent},
+{ path: 'contact', component: ContactComponent  },
+{ path: 'products', component: ProductListComponent, canActivate: [ProductRouteGaruds] },
 { path: 'login', component: LoginComponent },
 { path: 'products/new', component: NewProductComponent },
 { path: 'products/reactive-form', component: ReactiveFormComponent },
@@ -30,9 +32,12 @@ const ROUTES: Route[] = [{ path: '', component: HomeComponent },
 { path: '**', redirectTo: '' }
 ];
 
+//route gaurds
+// canActivate, canDeactivate, canLoad, canActivateChild, resolve
 
 @NgModule({
   imports: [RouterModule.forRoot(ROUTES)],
+  providers: [ProductRouteGaruds],
   exports: [RouterModule]
 })
 export class RoutingModule { }
