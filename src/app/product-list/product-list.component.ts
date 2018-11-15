@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { ProductService } from '../services/product.serivce';
 import { ConsoleLogger } from "../services/console.logger";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-product-list',
@@ -27,8 +27,10 @@ export class ProductListComponent {
   loading: boolean;
 
   constructor(private svc: ProductService,
-    private logger: ConsoleLogger, private router: Router) {
-    this.load();
+    private logger: ConsoleLogger, private activatedRoute: ActivatedRoute, private router: Router) {
+    // this.load();
+
+    this.products = this.activatedRoute.snapshot.data.products;
   }
 
   onNotified() {

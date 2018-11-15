@@ -12,6 +12,7 @@ import { MoreInfoComponent } from "./moreInfo/moreInfo.component";
 import { LoginComponent } from "./login/login.component";
 import { ProductRouteGaruds } from "./services/route.garuds";
 import { ProductService } from "./services/product.serivce";
+import { ProductResolver } from "./services/product.resolver";
 
 
 const CHILD_ROUTES: Route[] = [
@@ -22,13 +23,13 @@ const CHILD_ROUTES: Route[] = [
 
 
 const ROUTES: Route[] = [{ path: '', component: HomeComponent },
-{ path: 'about', component: AboutComponent},
-{ path: 'contact', component: ContactComponent  },
-{ path: 'products', component: ProductListComponent, canActivate: [ProductRouteGaruds] },
+{ path: 'about', component: AboutComponent },
+{ path: 'contact', component: ContactComponent },
+{ path: 'products', component: ProductListComponent, resolve: { products: ProductResolver }, canActivate: [ProductRouteGaruds] },
 { path: 'login', component: LoginComponent },
-{ path: 'products/new', component: NewProductComponent },
+{ path: 'products/new', component: NewProductComponent, canDeactivate: [ProductRouteGaruds] },
 { path: 'products/reactive-form', component: ReactiveFormComponent },
-{ path: 'products/:id', component: ProductDetailComponent, children: CHILD_ROUTES },
+{ path: 'products/:id', component: ProductDetailComponent, canActivateChild: [ProductRouteGaruds], children: CHILD_ROUTES },
 { path: '**', redirectTo: '' }
 ];
 
@@ -37,7 +38,7 @@ const ROUTES: Route[] = [{ path: '', component: HomeComponent },
 
 @NgModule({
   imports: [RouterModule.forRoot(ROUTES)],
-  providers: [ProductRouteGaruds],
+  providers: [ProductRouteGaruds, ProductResolver],
   exports: [RouterModule]
 })
 export class RoutingModule { }
