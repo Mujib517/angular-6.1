@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { ProductService } from "../services/product.serivce";
 import { Router } from '@angular/router';
+import { IProduct } from "../models/product.model";
 
 // template driven, model driven (reactive forms)
 @Component({
@@ -81,7 +82,7 @@ import { Router } from '@angular/router';
 })
 export class NewProductComponent {
 
-  product: any = {};
+  product: IProduct = { _id: '', brand: '', model: '', price: 0, inStock: false, img: '' };
   success: boolean;
   failed: boolean;
   loading: boolean;
@@ -98,7 +99,7 @@ export class NewProductComponent {
       .subscribe(res => {
         this.success = true;
         this.failed = false;
-        this.product = {};
+        this.product = { _id: '', brand: '', model: '', price: 0, inStock: false, img: '' };
         this.loading = false;
         //this.router.navigate(["/products"]);
       }, err => {
