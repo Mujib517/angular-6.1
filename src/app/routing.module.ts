@@ -30,6 +30,7 @@ const ROUTES: Route[] = [{ path: '', component: HomeComponent },
 { path: 'products/new', component: NewProductComponent, canDeactivate: [ProductRouteGaruds] },
 { path: 'products/reactive-form', component: ReactiveFormComponent },
 { path: 'products/:id', component: ProductDetailComponent, canActivateChild: [ProductRouteGaruds], children: CHILD_ROUTES },
+{ path: 'customers', loadChildren: 'src/app/lazy/customer.module#CustomerModule' },
 { path: '**', redirectTo: '' }
 ];
 

@@ -12,6 +12,7 @@ import { UserService } from "../services/user.service";
        <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
        <li class="nav-item"><a class="nav-link" routerLink="/products">Products</a></li>
        <li class="nav-item"><a class="nav-link" routerLink="/contact">Contact</a></li>
+       <li class="nav-item"><a class="nav-link" routerLink="/customers">Customers</a></li>
      </ul>
      <button *ngIf="!isAuthenticated" routerLink="/login" class="btn btn-sm btn-success">Login</button>
      &nbsp;
