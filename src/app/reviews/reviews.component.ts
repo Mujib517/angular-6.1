@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ProductService } from "../services/product.serivce";
+import { Review } from "../models/review.model";
 
 @Component({
   selector: 'app-product-reviews',
@@ -14,7 +15,7 @@ import { ProductService } from "../services/product.serivce";
  </div>`
 })
 export class ReviewsComponent {
-  reviews: any;
+  reviews: Review[];
 
   constructor(svc: ProductService) {
     this.reviews = svc.reviews;

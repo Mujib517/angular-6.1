@@ -23,7 +23,7 @@ export class ProductService {
     return this.http.get<Product>('http://exp-rest-api.herokuapp.com/api/products/' + id);
   }
 
-  save(product: Product): Observable<any> {
+  save(product: Product): Observable<Product> {
     var frmData: FormData = new FormData();
     // frmData.append("brand",product.brand);
     // frmData.append("model",product.model);
@@ -33,7 +33,7 @@ export class ProductService {
     for (var key in product) {
       frmData.append(key, product[key]);
     }
-    return this.http.post('http://exp-rest-api.herokuapp.com/api/products', frmData, { headers: {} });
+    return this.http.post<Product>('http://exp-rest-api.herokuapp.com/api/products', frmData, { headers: {} });
   }
 
   delete(id: string): Observable<any> {
