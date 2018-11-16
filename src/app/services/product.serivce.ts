@@ -13,12 +13,12 @@ export class ProductService {
   }
 
   get(): Observable<Product[]> {
-    return this.http.get("http://exp-rest-api.herokuapp.com/api/products")
+    return this.http.get("api/products")
       .pipe(map(res => res["data"]));
   }
 
   getById(id: string): Observable<Product> {
-    return this.http.get<Product>('http://exp-rest-api.herokuapp.com/api/products/' + id);
+    return this.http.get<Product>('api/products/' + id);
   }
 
   save(product: Product): Observable<Product> {
@@ -31,10 +31,10 @@ export class ProductService {
     for (var key in product) {
       frmData.append(key, product[key]);
     }
-    return this.http.post<Product>('http://exp-rest-api.herokuapp.com/api/products', frmData, { headers: {} });
+    return this.http.post<Product>('api/products', frmData, { headers: {} });
   }
 
   delete(id: string): Observable<any> {
-    return this.http.delete('http://exp-rest-api.herokuapp.com/api/products/' + id);
+    return this.http.delete('api/products/' + id);
   }
 }
