@@ -1,4 +1,4 @@
-export interface IProduct {
+export class Product {
   _id: string;
   brand: string;
   model: string;

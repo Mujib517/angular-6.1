@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { ProductService } from '../services/product.serivce';
 import { ConsoleLogger } from "../services/console.logger";
 import { Router, ActivatedRoute } from "@angular/router";
-import { IProduct } from "../models/product.model";
+import { Product } from "../models/product.model";
 
 @Component({
   selector: 'app-product-list',
@@ -24,7 +24,7 @@ import { IProduct } from "../models/product.model";
 })
 export class ProductListComponent {
 
-  products: IProduct[];
+  products: Product[];
   loading: boolean;
 
   constructor(private svc: ProductService,

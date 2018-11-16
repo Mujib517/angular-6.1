@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { IProduct } from '../models/product.model';
+import { Product } from '../models/product.model';
 
 @Injectable()
 export class ProductService {
@@ -12,18 +12,18 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
-  get(): Observable<IProduct[]> {
+  get(): Observable<Product[]> {
     var token = localStorage.getItem('token');
     var hdrs = { authorization: token };
     return this.http.get("http://exp-rest-api.herokuapp.com/api/products", { headers: hdrs })
       .pipe(map(res => res["data"]));
   }
 
-  getById(id: string): Observable<IProduct> {
-    return this.http.get<IProduct>('http://exp-rest-api.herokuapp.com/api/products/' + id);
+  getById(id: string): Observable<Product> {
+    return this.http.get<Product>('http://exp-rest-api.herokuapp.com/api/products/' + id);
   }
 
-  save(product: IProduct): Observable<any> {
+  save(product: Product): Observable<any> {
     var frmData: FormData = new FormData();
     // frmData.append("brand",product.brand);
     // frmData.append("model",product.model);
