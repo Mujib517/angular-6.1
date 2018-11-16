@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { UserService } from "../services/user.service";
 import { Router } from '@angular/router';
+import { User } from "../models/user.model";
 
 @Component({
   template: `<h1>Login</h1>
@@ -23,7 +24,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  user: any = {};
+  user: User = new User();
   error: boolean = false;
 
   constructor(private userSvc: UserService, private router: Router) { }
