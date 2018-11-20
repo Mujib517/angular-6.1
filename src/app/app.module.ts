@@ -23,6 +23,7 @@ import { MoreInfoComponent } from "./moreInfo/moreInfo.component";
 import { LoginComponent } from "./login/login.component";
 import { QuestionComponent } from "./question/question.component";
 import { ShowDirective } from "./show/show.directive";
+import { IfDirective } from "./if/if.directive";
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { ShowDirective } from "./show/show.directive";
     ProductComponent, UserListComponent, UserComponent,
     HeaderComponent, FooterComponent, ProductDetailComponent,
     TimePipe, NewProductComponent, ReactiveFormComponent, ReviewsComponent,
-    MoreInfoComponent, LoginComponent, QuestionComponent, ShowDirective],
+    MoreInfoComponent, LoginComponent, QuestionComponent, ShowDirective, IfDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
