@@ -13,7 +13,7 @@ export class UserService {
   }
 
   login(user: User): Observable<User> {
-    return this.http.post<User>('http://exp-rest-api.herokuapp.com/api/users/login', user);
+    return this.http.post<User>('api/users/login', user);
   }
 
   saveToken(token) {

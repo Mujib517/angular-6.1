@@ -12,6 +12,9 @@ export class ProductInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     var token = localStorage.getItem("token"); //truthy falsy
     //req.url = "http://exp-rest-api.herokuapp.com/" + req.url;
+    var props = { url: "http://exp-rest-api.herokuapp.com/" + req.url };
+    req = Object.assign(req, props);
+
     var newReq = token ? req.clone({ setHeaders: { authorization: token } }) : req;
     return next.handle(newReq)
       .pipe(map(res => {
