@@ -8,7 +8,7 @@ import { Component } from "@angular/core";
 
   <h1 *if="prop">Heading 2</h1>
 
-
+  <app-question>My Question goes here </app-question>
   `
 })
 export class AboutComponent {
