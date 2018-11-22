@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { QuestionComponent } from "../question/question.component";
 
 @Component({
   selector: 'app-about',
@@ -18,9 +19,8 @@ export class AboutComponent {
   prop: boolean = false;
 }
 
-// constructor: initialization
+// constructor: initialization. executes once
 // ngOnChanges
-// ngOnInit : init web svc calls
+// ngOnInit : init web svc calls. executes once
 // ngDoCheck
-// ngOnDestroy
-
+// ngOnDestroy: before removing from dom.

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../services/product.serivce";
 import { ActivatedRoute } from "@angular/router";
 
@@ -35,7 +35,7 @@ import { ActivatedRoute } from "@angular/router";
   `
 
 })
-export class ProductDetailComponent {
+export class ProductDetailComponent implements OnInit {
 
   //? safe navigation operator
   product: any = {};

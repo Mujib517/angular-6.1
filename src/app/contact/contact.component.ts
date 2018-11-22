@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { observable } from "rxjs";
 
 @Component({
   selector: 'app-contact',
@@ -8,13 +9,15 @@ import { HttpClient } from "@angular/common/http";
 
     <button (click)="reset()">Reset</button>
     <button (click)="call()">Call API</button>
+    <button (click)="stop()">Stop</button>
   `,
 })
-export class ContactComponent {
+export class ContactComponent implements OnDestroy {
   //CD. 
   // Asynchronous operation completion
   // DB,File,Events, Timers
   count: number = 0;
+  interval: any;
 
   constructor(private http: HttpClient) {
     setInterval(() => ++this.count, 1000);
@@ -25,9 +28,22 @@ export class ContactComponent {
   }
 
   call() {
-    setInterval(() => ++this.count, 1000);
+    this.interval = setInterval(() => ++this.count, 1000);
     this.http.get('api/products').
       subscribe(res => this.count = 100);
   }
 
+  stop() {
+    console.log("Stopped");
+    clearInterval(this.interval);
+  }
+
+  //clean up
+  ngOnDestroy() {
+    //observable.unsubscribe();
+    clearInterval(this.interval);
+    console.log("Destroyed");
+  }
+
 }
+//Event loop
