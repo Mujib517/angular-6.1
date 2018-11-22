@@ -8,7 +8,10 @@ import { Component } from "@angular/core";
 
   <h1 *if="prop">Heading 2</h1>
 
-  <app-question>My Question goes here </app-question>
+    <app-question>
+      <h1 class="cls1">My Question</h1>
+      <div class="cls2">My Footer</div>
+    </app-question>
   `
 })
 export class AboutComponent {

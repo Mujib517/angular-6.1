@@ -9,7 +9,10 @@ import { Component } from '@angular/core';
       Question
     </div>
     <div class="card-body">
-      <ng-content></ng-content>
+      <ng-content select=".cls1"></ng-content>
+    </div>
+    <div class="card-footer">
+      <ng-content select=".cls2"></ng-content>
     </div>
     </div>
   `
