@@ -24,6 +24,7 @@ import { LoginComponent } from "./login/login.component";
 import { QuestionComponent } from "./question/question.component";
 import { ShowDirective } from "./show/show.directive";
 import { IfDirective } from "./if/if.directive";
+import { CounterComponent } from "./counter/counter.component";
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { IfDirective } from "./if/if.directive";
     ProductComponent, UserListComponent, UserComponent,
     HeaderComponent, FooterComponent, ProductDetailComponent,
     TimePipe, NewProductComponent, ReactiveFormComponent, ReviewsComponent,
-    MoreInfoComponent, LoginComponent, QuestionComponent, ShowDirective, IfDirective],
+    MoreInfoComponent, LoginComponent, QuestionComponent, ShowDirective, IfDirective, CounterComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
