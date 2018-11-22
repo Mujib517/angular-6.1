@@ -22,5 +22,5 @@ export class AboutComponent {
 // constructor: initialization. executes once
 // ngOnChanges: executes multiple times
 // ngOnInit : init web svc calls. executes once
-// ngDoCheck
+// ngDoCheck: 
 // ngOnDestroy: before removing from dom. executes once

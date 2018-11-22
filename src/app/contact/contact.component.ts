@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from "@angular/core";
+import { Component, OnDestroy, DoCheck } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { observable } from "rxjs";
 
@@ -6,15 +6,14 @@ import { observable } from "rxjs";
   selector: 'app-contact',
   template: `<h1>Contact Page</h1>
     
-
-    <app-counter [count]="cnt"></app-counter>
+   <h1>{{cnt}}</h1>  
 
     <button (click)="reset()">Reset</button>
     <button (click)="call()">Call API</button>
     <button (click)="stop()">Stop</button>
   `,
 })
-export class ContactComponent implements OnDestroy {
+export class ContactComponent implements OnDestroy, DoCheck {
   //CD. 
   // Asynchronous operation completion
   // DB,File,Events, Timers
@@ -24,6 +23,11 @@ export class ContactComponent implements OnDestroy {
   constructor(private http: HttpClient) {
     setInterval(() => ++this.cnt, 1000);
   }
+
+  ngDoCheck() {
+    console.log("Value changed");
+  }
+
 
   reset() {
     this.cnt = 0;
