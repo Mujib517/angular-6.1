@@ -1,11 +1,12 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, OnChanges, OnDestroy, DoCheck } from "@angular/core";
 
 @Component({
   templateUrl: 'home.html',
   selector: 'app-home'
 })
 export class HomeComponent {
- 
+
+  
 }
 // bootstrap
 // main.ts --> app.module --> app.component --> view

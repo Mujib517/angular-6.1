@@ -13,6 +13,7 @@ import { QuestionComponent } from "../question/question.component";
       <h1 class="cls1">My Question</h1>
       <div class="cls2">My Footer</div>
     </app-question>
+    <app-counter [count]="10"></app-counter>
   `
 })
 export class AboutComponent {
@@ -24,3 +25,8 @@ export class AboutComponent {
 // ngOnInit : init web svc calls. executes once
 // ngDoCheck: 
 // ngOnDestroy: before removing from dom. executes once
+
+// ngContentInit
+// ngContentChecked {{}}
+// ngViewInit
+// ngViewChecked

@@ -8,9 +8,26 @@ export class CounterComponent implements OnChanges {
   @Input()
   count: number;
 
-  ngOnChanges(change: SimpleChanges) {
-    // if (change.count.currentValue === 10) this.count = 0;
-    console.log(change);
+  // ngOnChanges(change: SimpleChanges) {
+  //   // if (change.count.currentValue === 10) this.count = 0;
+  //   console.log(change);
+  // }
+  constructor() { console.log("Constructor"); }
+
+  ngOnChanges() {
+    console.log("On Changes");
+  }
+
+  ngOnInit() {
+    console.log("inside init");
+  }
+
+  ngDoCheck() {
+    console.log("DO chceck");
+  }
+
+  ngOnDestroy() {
+    console.log("On Destroy");
   }
 
 }
