@@ -17,3 +17,10 @@ import { Component } from "@angular/core";
 export class AboutComponent {
   prop: boolean = false;
 }
+
+// constructor: initialization
+// ngOnChanges
+// ngOnInit : init web svc calls
+// ngDoCheck
+// ngOnDestroy
+

@@ -40,13 +40,15 @@ export class ProductDetailComponent {
   //? safe navigation operator
   product: any = {};
 
-  constructor(svc: ProductService, route: ActivatedRoute) {
-    const id = route.snapshot.params.id;
+  constructor(private svc: ProductService, private route: ActivatedRoute) { }
 
-    svc.getById(id)
+  //hook
+  ngOnInit() {
+    const id = this.route.snapshot.params.id;
+    this.svc.getById(id)
       .subscribe(res => {
         this.product = res;
-        svc.reviews = this.product.reviews;
+        this.svc.reviews = this.product.reviews;
       }, err => console.log(err));
   }
 }
