@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
   </footer> 
   `
 })
-export class FooterComponent {}
+export class FooterComponent {
+  count: number = 0;
+
+  ngOnInit() {
+    ++this.count;
+  }
+}
